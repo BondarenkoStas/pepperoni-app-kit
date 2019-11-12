@@ -15,7 +15,7 @@ workflows:
         rm -rf ~/codemagic-build-scripts
         git clone https://github.com/NevercodeHQ/codemagic-build-scripts.git ~/codemagic-build-scripts/ --depth 1
       - echo $CM_KEYSTORE | base64 --decode > acuity.jks
-      # - npm test
+      - npm install
       - |
         cd android
         ./gradlew bundleRelease
