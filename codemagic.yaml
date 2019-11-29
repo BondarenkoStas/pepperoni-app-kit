@@ -12,6 +12,7 @@ workflows:
         # fetch codemagic helper scripts
         rm -rf ~/codemagic-build-scripts
         git clone https://github.com/NevercodeHQ/codemagic-build-scripts.git ~/codemagic-build-scripts/ --depth 1
+      - npm install
       - |
         # set up key.properties
         echo $CM_KEYSTORE | base64 --decode > /tmp/keystore.keystore
