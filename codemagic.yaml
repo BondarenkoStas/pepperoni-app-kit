@@ -51,9 +51,10 @@ workflows:
         echo $CM_CERTIFICATE | base64 --decode > /tmp/certificate.p12
         keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password $CM_CERTIFICATE_PASSWORD
       - npm install
+      - npm test
       - cd android && ./gradlew bundleRelease
       - xcode-project use-profiles
-      - xcode-project build-ipa --workspace "ios/Runner.xcworkspace" --scheme "Runner"
+      - xcode-project build-ipa --workspace "ios/PepperoniAppTemplate.xcworkspace" --scheme "PepperoniAppTemplate"
     artifacts:
       - android/app/build/**/outputs/**/*.apk
       - android/app/build/**/outputs/**/*.aab
