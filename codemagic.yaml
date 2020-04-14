@@ -29,7 +29,6 @@ workflows:
     #     keyAlias=$CM_KEY_ALIAS_USERNAME
     #     storeFile=/tmp/keystore.keystore
     #     EOF
-      - find . -name "Podfile" -execdir pod install \;
       - keychain initialize
       - |
         # set up provisioning profiles
@@ -54,7 +53,7 @@ workflows:
     #       --key-pass $CM_KEY_ALIAS_PASSWORD \
     #       --pattern 'android/app/build/outputs/**/**/*.aab'
       - xcode-project use-profiles
-      - xcode-project build-ipa --workspace "ios/PepperoniAppTemplate.xcodeproj" --scheme "PepperoniAppTemplate"
+      - xcode-project build-ipa --project "ios/PepperoniAppTemplate.xcodeproj" --scheme "PepperoniAppTemplate"
     artifacts:
     #   - android/app/build/outputs/**/**/*.apk
     #   - android/app/build/outputs/**/**/*.aab
