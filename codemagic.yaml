@@ -1,5 +1,5 @@
 workflows:
-  default-workflow:
+  react-native-workflow:
     name: react native workflow
     environment:
       vars:
